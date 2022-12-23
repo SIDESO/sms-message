@@ -4,7 +4,6 @@ namespace Sideso\SMS\Tests;
 
 use Sideso\SMS\Message;
 
-
 class MessageTest extends TestCase
 {
     /** @test */

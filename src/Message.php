@@ -74,7 +74,6 @@ class Message
      * Tags.
      */
     public array $tags = [];
-    
 
     /**
      * Create a new message instance.
@@ -202,5 +201,5 @@ class Message
         $this->tags = $tags;
 
         return $this;
-    }   
+    }
 }

@@ -1,13 +1,14 @@
 <?php
 
-namespace Sideso\SMS;
+namespace Sideso\SMS\Events;
 
+use Sideso\SMS\Message;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Queue\SerializesModels;
 
-class SmsSent {
-
+class SmsSent
+{
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public Message $message;
