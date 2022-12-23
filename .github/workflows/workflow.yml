@@ -10,9 +10,8 @@ on:
 
 jobs:
   php-cs-fixer:
-    uses: SIDESO/.github/.github/workflows/php-cs-fixer.yml@master
+    uses: SIDESO/.github/.github/workflows/php-cs-fixer-laravel-packages.yml@master
   laravel-tests:
     needs: php-cs-fixer
-    uses: ./.github/workflows/laravel-tests.yml #path/to/action
+    uses: ./.github/workflows/tests.yml
     secrets: inherit
-        
