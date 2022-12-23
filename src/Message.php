@@ -8,6 +8,35 @@ use Illuminate\Support\Carbon;
 class Message
 {
     /**
+     * The message recipients.
+     *
+     * @var array
+     */
+    public ?string $to;
+
+    /**
+     * The message callback.
+     *
+     * @var callable
+     */
+    public $callback;
+
+    /**
+     * The message was successfully sent.
+     */
+    public bool $sent = false;
+
+    /**
+     * Id of the message in the provider.
+     */
+    public ?string $provider_msg_id = null;
+
+    /**
+     * The SMS provider
+     */
+    public ?string $provider = null;
+
+    /**
      * The message content.
      *
      * @var string
@@ -40,6 +69,12 @@ class Message
      * Send date.
      */
     public ?Carbon $send_date = null;
+
+    /**
+     * Tags.
+     */
+    public array $tags = [];
+    
 
     /**
      * Create a new message instance.
@@ -129,4 +164,43 @@ class Message
 
         return $this;
     }
+
+    /**
+     * Set the message callback.
+     *
+     * @param callable $callback
+     * @return $this
+     */
+    public function withCallback(callable $callback)
+    {
+        $this->callback = $callback;
+
+        return $this;
+    }
+
+    /**
+     * Set the message provider.
+     *
+     * @param string $provider
+     * @return $this
+     */
+    public function provider($provider)
+    {
+        $this->provider = $provider;
+
+        return $this;
+    }
+
+    /**
+     * Set the message tags.
+     *
+     * @param array $tags
+     * @return $this
+     */
+    public function tags($tags)
+    {
+        $this->tags = $tags;
+
+        return $this;
+    }   
 }
